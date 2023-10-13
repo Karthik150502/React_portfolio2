@@ -28,9 +28,9 @@ export default function Contact() {
           <h1 className="contacttitle">Contact</h1>
           <span className="contactdesc">Kindly fill out the form below to discuss the work oppurtunity!</span>
             <form action="" className="contactform" ref={form} onSubmit={sendEmail}>
-                <input type="text" content="LKJAbsfjk" className="name" placeholder="Your name" name="your_name"/>
-                <input type="email" className="email" placeholder="Your email" name="your_email"/>
-                <textarea className="msg" name="message" rows="5" placeholder="Your message"></textarea>      
+                <input type="text"  className="name" placeholder="Your name" name="your_name"/>
+                <input type="email" className="email" placeholder="Your email" name="your_email"/><small className="inputfielddesc">&#9872; Kindly enter a valid email so that i can respond accordinlgy!</small>
+                <textarea className="msg" name="message" rows="5" placeholder="Your message"></textarea><small className="inputfielddesc">&#9872; Kindly enter the message!</small>    
                 <button type="submit" className="submitbtn" value="send">Submit</button>
             </form>
 
