@@ -1,0 +1,52 @@
+import "./contact.css"
+import { useRef } from "react"
+import instalogo from "../../assets/instagram.png"
+import linkedinlogo from "../../assets/linkedin.png"
+import twitetrlogo from "../../assets/twitter.png"
+import React from 'react'
+import emailjs from '@emailjs/browser';
+
+
+
+export default function Contact() {
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_a3itycn', 'template_xqdgla6', form.current, 'BNhQsrh8j37XyT853')
+      .then((result) => {
+          console.log(result.text);
+          e.target.reset()
+          alert("Email sent!")
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+  return (
+    <section id="contactpage">
+        <div id="contactsec">
+          <h1 className="contacttitle">Contact</h1>
+          <span className="contactdesc">Kindly fill out the form below to discuss the work oppurtunity!</span>
+            <form action="" className="contactform" ref={form} onSubmit={sendEmail}>
+                <input type="text" content="LKJAbsfjk" className="name" placeholder="Your name" name="your_name"/>
+                <input type="email" className="email" placeholder="Your email" name="your_email"/>
+                <textarea className="msg" name="message" rows="5" placeholder="Your message"></textarea>      
+                <button type="submit" className="submitbtn" value="send">Submit</button>
+            </form>
+
+            <div className="links">
+                  <a target="_blank" href="https://www.linkedin.com/in/karthik-j-68a915195/">
+                    <img src={linkedinlogo} alt="LinkedIN" className="link" />
+                  </a>
+
+                  <a target="_blank" href="https://www.instagram.com/Karthik.150502/">
+                    <img src={instalogo} alt="Instagram" className="link" />
+                  </a>
+                  <a target="_blank" href="https://twitter.com/Karthik72050421">
+                    <img src={twitetrlogo} alt="Twitter" className="link" />
+                  </a>
+            </div>
+        </div>
+    </section>
+    )
+}
